@@ -4,8 +4,10 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "build":"npm install"
+    "start": "node app.js"
+  },
+  "engine":{
+    "node": ">=14 <15"
   },
   "keywords": [],
   "author": "",
@@ -19,7 +21,6 @@
     "mongodb": "^4.2.2",
     "mongoose": "^7.5.3",
     "mysql": "^2.18.1",
-    "node": "^14.17.0",
     "nodemon": "^3.0.1"
   }
 }
