@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 const express =require('express');
 const cors =require('cors');
 const jwt=require('jsonwebtoken');
@@ -8,12 +8,12 @@ const cookie_parser =require('cookie-parser');
 const UserAdd=require('./Add')
 const app =express();
 const User =require('./User');
-const PORT=process.env.PORT 
 app.use(cors());
 app.use(cookie_parser());
 app.use(express.json());
 const jwt_secret="absbbccbchbcsbcsbcbc1234567889";
-const db_url=process.env.MONGO_DB_URL;
+const db_url="mongodb+srv://bajpaishashwat332:CAvEsN4ZbnHwOLNw@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority";
+const PORT="";
 const connection_params={
     useNewUrlParser:true,
     useUnifiedTopology:true
@@ -181,7 +181,3 @@ app.listen(PORT,()=>{
 })
 
 
-
-//bajpaishashwat332
-//CAvEsN4ZbnHwOLNw
-//mongodb+srv://bajpaishashwat332CAvEsN4ZbnHwOLNw:@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority
