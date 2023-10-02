@@ -1,14 +1,12 @@
 const express = require('express');
 const cors = require('cors');
 const mongoose = require('mongoose');
-const cookie_parser = require('cookie-parser');
 const UserAdd = require('./Add');
 const app = express();
 const User = require('./User');
 app.use(cors());
 app.use(cookie_parser());
 app.use(express.json());
-const jwt_secret = "absbbccbchbcsbcsbcbc1234567889";
 const db_url = "mongodb+srv://bajpaishashwat332:CAvEsN4ZbnHwOLNw@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority";
 const PORT = 5000;
 const connection_params = {
