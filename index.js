@@ -7,7 +7,7 @@ const User = require('./User');
 app.use(cors());
 app.use(express.json());
 const db_url = "mongodb+srv://bajpaishashwat332:CAvEsN4ZbnHwOLNw@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority";
-const PORT = "https://backend-ufrt.onrender.com";
+const PORT =  process.env.PORT || 5000;
 const connection_params = {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -77,15 +77,12 @@ app.post('/login', login_details)
 async function login_details(req, res) {
     console.log(req.body);
     const { email, password } = req.body;
-    const user = await User.findOne({ email });
-    if (!user) {
-        return res.json({
-            message: 'Invalid email or password!'
-        })
-    }
-
-    // You can add your authentication logic here
-
+    const user = await User.findOne({ email,password });
+  if(!user){
+     return res.json({
+         message:'Invalid email or password!'
+     })
+  }
     if (res.status(201)) {
         return res.json({
             message: "Login successful",
