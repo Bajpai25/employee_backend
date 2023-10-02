@@ -8,7 +8,7 @@ const User = require('./User');
 app.use(cors());
 app.use(express.json());
 const db_url = "mongodb+srv://bajpaishashwat332:CAvEsN4ZbnHwOLNw@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority";
-const PORT =  process.env.PORT || 5000;
+const PORT =  5000;
 const connection_params = {
     useNewUrlParser: true,
     useUnifiedTopology: true
