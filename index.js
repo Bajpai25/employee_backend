@@ -5,7 +5,6 @@ const UserAdd = require('./Add');
 const app = express();
 const User = require('./User');
 app.use(cors());
-app.use(cookie_parser());
 app.use(express.json());
 const db_url = "mongodb+srv://bajpaishashwat332:CAvEsN4ZbnHwOLNw@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority";
 const PORT = 5000;
@@ -79,7 +78,8 @@ async function login_details(req, res) {
     console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    if (!user) {
+    const user_password=await User.findOne({password});
+    if (!user || !user_password) {
         return res.json({
             message: 'Invalid email or password!'
         })
