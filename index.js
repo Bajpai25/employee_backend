@@ -7,7 +7,7 @@ const User = require('./User');
 app.use(cors());
 app.use(express.json());
 const db_url = "mongodb+srv://bajpaishashwat332:CAvEsN4ZbnHwOLNw@cluster0.ehdqcrx.mongodb.net/?retryWrites=true&w=majority";
-const PORT = 5000;
+const PORT = "https://backend-ufrt.onrender.com";
 const connection_params = {
     useNewUrlParser: true,
     useUnifiedTopology: true
@@ -78,8 +78,7 @@ async function login_details(req, res) {
     console.log(req.body);
     const { email, password } = req.body;
     const user = await User.findOne({ email });
-    const user_password=await User.findOne({password});
-    if (!user || !user_password) {
+    if (!user) {
         return res.json({
             message: 'Invalid email or password!'
         })
